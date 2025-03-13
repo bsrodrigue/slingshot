@@ -24,12 +24,14 @@ int main(void) {
 
   bool shooting = false;
 
+  float rotation_speed = 2.0f;
+
+  const float min_angle = -45.0f;
+  const float max_angle = -135.0f;
+
   while (!WindowShouldClose()) {
     time += GetFrameTime();
-    angle = ((float)(-180 + 0) / 2) + ((float)(0 + 180) / 2) * sin(time * 1.2);
-    // angle *= -1;
-
-    // const Vector2 target
+    angle = ((float)(max_angle + min_angle) / 2) + ((float)(max_angle - min_angle) / 2) * sin(time * rotation_speed);
 
     if (IsKeyPressed(KEY_SPACE)) {
       if (!shooting) {
